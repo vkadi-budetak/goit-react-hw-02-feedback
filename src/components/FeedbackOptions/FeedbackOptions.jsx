@@ -1,9 +1,11 @@
-export default function FeedbackOptions({ onLeaveFeedback }) {
+export default function FeedbackOptions({ onLeaveFeedback, options }) {
   return (
     <div>
-      <button onClick={() => onLeaveFeedback('good')}>good</button>
-      <button onClick={() => onLeaveFeedback('neutral')}>neutral</button>
-      <button onClick={() => onLeaveFeedback('bad')}>bad</button>
+      {options.map(name => (
+        <button key={name} onClick={() => onLeaveFeedback(name)}>
+          {name}
+        </button>
+      ))}
     </div>
   );
 }
